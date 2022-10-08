@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./components/NavBar";
-import InputField from "./components/inputField";
+import InputField from "./components/InputField";
 import Problem from "./components/Problem";
 import data from "./finalData.json";
 
@@ -23,6 +23,7 @@ function App() {
         {Object.entries(data).map(([key, value]) => {
           return <Problem data={value} userSolved={userSolved} />;
         })}
+        
       </div>
     </>
   );
