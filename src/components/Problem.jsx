@@ -5,11 +5,10 @@ import { useState, useEffect } from "react";
 function Problem(props) {
   const [hasSolved, setHasSolved] = useState(false);
 
-
   function checkSolved() {
     let url = props.data.problemURL;
     for (let i = 0; i < props.userSolved.length; i++) {
-      const newURL = (props.userSolved[i]);
+      const newURL = props.userSolved[i];
       if (url == newURL) {
         setHasSolved(true);
         console.log(props.data.problemName);
@@ -19,14 +18,19 @@ function Problem(props) {
 
   useEffect(() => {
     checkSolved();
-    // console.log(props.userSolved)
   }, [props.userSolved]);
 
   return (
     <>
-      <div className="mockup-code w-80 overflow-hidden m-6 ">
+      <div
+        className={`mockup-code w-80  overflow-hidden m-6 ${
+          hasSolved ? "bg-green-900" : ""
+        }`}
+      >
         <pre data-prefix="$">
-          <code>{props.data.problemName}</code>
+          <code className={`${hasSolved ? "text-white" : ""}`}>
+            {props.data.problemName}
+          </code>
         </pre>
         <pre data-prefix=">" className="text-warning">
           <code>Rating : {props.data.problemRating}</code>
