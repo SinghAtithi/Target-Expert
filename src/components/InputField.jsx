@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function InputField(props) {
@@ -28,6 +28,11 @@ function InputField(props) {
     console.log(props.userName);
   };
 
+  useEffect(() => {
+    props.setUserName("");
+  }, [])
+  
+
   return (
     <div className="flex justify-center m-10 ">
       <input
@@ -37,7 +42,7 @@ function InputField(props) {
         onChange={(e) => props.setUserName(e.target.value)}
       />
       <button className="btn btn-outline btn-success" onClick={updateData}>
-        GO TO THE{" "}
+        Let's Go 🚀🚀
       </button>
     </div>
   );

@@ -23,8 +23,8 @@ function Problem(props) {
   return (
     <>
       <div
-        className={`mockup-code w-80  overflow-hidden m-6 ${
-          hasSolved ? "bg-green-900" : ""
+        className={`mockup-code w-80 shadow-2xl  overflow-hidden m-6 ${
+          hasSolved ? "bg-teal-900" : ""
         }`}
       >
         <pre data-prefix="$">
@@ -35,12 +35,16 @@ function Problem(props) {
         <pre data-prefix=">" className="text-warning">
           <code>Rating : {props.data.problemRating}</code>
         </pre>
-        <pre data-prefix=">" className="text-red-600">
-          <code>Done!</code>
+        <pre data-prefix=">" className="text-pink-600">
+          <code>{`${props.data.userSolved} Users Solved`}</code>
         </pre>
 
-        <a href={props.data.problemURL} className=" flex justify-end ">
-          <button className="btn btn-success mx-6">
+        <a
+          href={props.data.problemURL}
+          className=" flex justify-end "
+          target="_blank"
+        >
+          <button className={`btn  mx-6 ${hasSolved ? "bg" : "btn-success"}`}>
             {hasSolved ? "Solve Again" : "Solve"}
           </button>
         </a>
