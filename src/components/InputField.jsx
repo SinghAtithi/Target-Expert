@@ -37,7 +37,7 @@ function InputField(props) {
     <div className="flex justify-center m-10 ">
       <input
         type="text"
-        placeholder="Type here"
+        placeholder="Enter the UserName"
         className="input input-bordered input-accent w-full max-w-xs mx-12"
         onChange={(e) => props.setUserName(e.target.value)}
       />
