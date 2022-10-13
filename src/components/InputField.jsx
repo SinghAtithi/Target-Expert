@@ -30,8 +30,7 @@ function InputField(props) {
 
   useEffect(() => {
     props.setUserName("");
-  }, [])
-  
+  }, []);
 
   return (
     <div className="flex justify-center m-10 ">
@@ -40,6 +39,11 @@ function InputField(props) {
         placeholder="Enter the UserName"
         className="input input-bordered input-accent w-full max-w-xs mx-12"
         onChange={(e) => props.setUserName(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key == "Enter") {
+            updateData();
+          }
+        }}
       />
       <button className="btn btn-outline btn-success" onClick={updateData}>
         Let's Go 🚀🚀
